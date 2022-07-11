@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { RiEdit2Fill } from "react-icons/ri";
+import TodoForm from "./TodoForm";
 
 const Todo = ({ todos, completeTodo, removeTodo, editTodo }) => {
   //   console.log(todos, "hiii");
@@ -10,13 +11,17 @@ const Todo = ({ todos, completeTodo, removeTodo, editTodo }) => {
     value: "",
   });
 
-  //   const printList = todos.map((todo, index) => {
-  //     // console.log(todo, "oooo");
-  //     // console.log(index, "pppp");
-  //     console.log(todo.text, "heloooo");
+  const submitUpdate = (value) => {
+    editTodo(edit.id, value);
+    setEdit({
+      id: null,
+      value: "",
+    });
+  };
 
-  //     return index, todo.text;
-  //   });
+  if (edit.id) {
+    return <TodoForm edit={edit} onSubmit={submitUpdate} />;
+  }
 
   return todos.map((todo, index) => (
     <div key={index}>

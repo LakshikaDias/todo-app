@@ -5,6 +5,7 @@ import TodoForm from "./TodoForm";
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
 
+  // add todo
   const addTodo = (todo) => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
@@ -15,6 +16,7 @@ const TodoList = () => {
     console.log(newTodos);
   };
 
+  // edit todo
   const editTodo = (todoId, newValue) => {
     if (!newValue.text || /^\s*$/.test(newValue.text)) {
       return;
@@ -24,6 +26,9 @@ const TodoList = () => {
       prev.map((item) => (item.id === todoId ? newValue : item))
     );
   };
+
+  //remoe todo
+
   const removeTodo = (id) => {
     const removeArr = [...todos].filter((todo) => todo.id !== id);
 
