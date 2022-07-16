@@ -31,7 +31,7 @@ const Todo = ({ todos, completeTodo, removeTodo, editTodo }) => {
       <div>
         <RiCloseCircleFill onClick={() => removeTodo(todo.id)} />
         <RiEdit2Fill
-          onClick={() => editTodo({ id: todo.id, value: todo.text })}
+          onClick={() => setEdit({ id: todo.id, value: todo.text })}
         />
       </div>
     </div>

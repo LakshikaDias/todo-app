@@ -18,6 +18,7 @@ const TodoList = () => {
 
   // edit todo
   const editTodo = (todoId, newValue) => {
+    console.log(todoId, newValue, "hiiii");
     if (!newValue.text || /^\s*$/.test(newValue.text)) {
       return;
     }
@@ -27,7 +28,7 @@ const TodoList = () => {
     );
   };
 
-  //remoe todo
+  //remove todo
 
   const removeTodo = (id) => {
     const removeArr = [...todos].filter((todo) => todo.id !== id);
